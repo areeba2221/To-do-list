@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TO DO LIST (Community)</title>
+  
+      <link href='https://fonts.googleapis.com/css?family=Baloo Bhaina' rel='stylesheet'>
+     <link href='https://fonts.googleapis.com/css?family=Baloo' rel='stylesheet'>
+     <link href='https://fonts.googleapis.com/css?family=Baloo Tammudu 2' rel='stylesheet'>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body >
+    <section>
+
+        <!--  Relative parent container -->
+<div class="relative h-screen w-full">
+  
+  <!-- The Video Background -->
+  <video  autoplay muted loop 
+    class="absolute top-0 left-0 min-w-full min-h-full object-cover z-0">
+    <source src="video/Chillhop - White Oak.mp4" type="video/mp4">
+  </video>
+
+  <!--top Content -->
+  <div class="relative flex justify-center pt-[58px] ">
+    <div class=" w-[436px] h-[93px] rounded-[85px] bg-[#D9D9D980] border-[1px] border-[#FFFFFFB2]">
+      <h1 class="flex items-center justify-center py-4 bg-clip-text text-transparent bg-gradient-to-r from-[#C4564D] to-[#864B49] text-[64px] font-normal
+      leading-[100%] mx-auto font-[Baloo]  text-center">
+            To-Do List
+      </h1>
+    </div>
+  </div>
+
+  <!-- content 2 line -->
+  <div class="relative flex items-center pt-[44px]">
+    <input type="text" id="input" class="w-[614px] h-[81px] rounded-[7px] border-[1px] bg-[#C4BABA5E] border-[#FFFFFFB2] ml-[210px]">
+    <button id="inp" onclick="add()" class="w-[90px] h-[90px] border-[1px] bg-[#C4BABA5E] border-[#FFFFFFB2] rounded-full ml-[100px]"> 
+      <img src="images/add sign.png">
+    </button>
+    <div class="w-[250px] h-[62px] flex border-[1px] bg-[#C4BABA5E] border-[#FFFFFFB2] ml-[46px] rounded-[2px]">
+      <h1 class="w-[56px] h-[48px] ml-[25px] font-[Baloo Bhaina] text-[24px] leading-[100%] font-normal text-[#FFFFFF] py-4">
+        ALL
+      </h1>
+      <img src="images/down arrow.png" class="w-[40px] h-[26px] mt-[15px] ml-[110px]">
+    </div>
+  </div>
+
+  <div id="text">
+
+  </div>
+ 
+   <!-- <div class="relative flex justify-center pt-[74px]">
+    <div class="w-[735px] h-[78px] flex rounded-[85px] bg-[#D9D9D980] border-[1px] border-[#FFFFFFB2]">
+        <h1 class="w-[248x] font-[Baloo] h-[92px] ml-[33px]  font-[Baloo Tammudu 2] text-[40px] leading-[100%] font-normal text-[#FFFFFF] py-4">
+          Go for walking
+        </h1>
+        <img src="images/circle.png" class="w-[55px] h-[55px] mt-[10px] ml-[285px]">
+        <img src="images/delete box.png" class="w-[60px] h-[55px] ml-[19px] mt-[12px]">
+    </div>
+   </div>
+
+   
+     <div class="relative flex justify-center pt-[24px]">
+    <div class="w-[735px] h-[78px] flex rounded-[85px] bg-[#D9D9D980] border-[1px] border-[#FFFFFFB2]">
+        <h1 class="w-[248x] h-[92px] ml-[33px]  font-family-[Baloo Tammudu 2] text-[40px] leading-[100%] font-normal text-[#FFFFFF] py-4">
+          Do homework
+        </h1>
+        <img src="images/circle.png" class="w-[55px] h-[55px] mt-[10px] ml-[293px]">
+        <img src="images/delete box.png" class="w-[60px] h-[55px] ml-[19px] mt-[12px]">
+    </div>
+   </div>
+
+   
+     <div class="relative flex justify-center pt-[24px]">
+    <div class="w-[735px] h-[78px] flex rounded-[85px] bg-[#D9D9D980] border-[1px] border-[#FFFFFFB2]">
+        <h1 class="w-[248x] h-[92px] ml-[33px]  font-[Baloo Tammudu 2] text-[40px] leading-[100%] font-normal text-[#FFFFFF] py-4">
+          Plan the party
+        </h1>
+        <img src="images/circle.png" class="w-[55px] h-[55px] mt-[10px] ml-[293px]">
+        <img src="images/delete box.png" class="w-[60px] h-[55px] ml-[19px] mt-[12px]">
+    </div>
+   </div> -->
+
+  </div>
+
+    </section>
+    <script src="script.js"></script>
+</body>
+</html>
