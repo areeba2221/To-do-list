@@ -12,11 +12,13 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 <body >
-    <section>
+
+  <section>
+
 <div class="relative h-screen w-full">
 
   <video  autoplay muted loop 
-    class="absolute inset-0 h-full w-full object-cover -z-100">
+    class="absolute top-0 left-0 min-w-full min-h-full object-cover z-0">
     <source src="video/Chillhop - White Oak.mp4" type="video/mp4">
   </video>
 
@@ -30,56 +32,38 @@
   </div>
 
   <div class="relative flex items-center pt-[44px]">
-    <input type="text" id="taskInput" class="w-[614px] h-[81px] rounded-[7px] text-[#FFFFFF] text-left
-    text-2xl font-[Baloo] border-[1px] bg-[#C4BABA5E] border-[#FFFFFFB2] ml-[210px]">
-    <button onclick="addTask()" class="w-[90px] h-[90px] border-[1px] bg-[#C4BABA5E] border-[#FFFFFFB2] rounded-full ml-[100px]"> 
+    <input type="text" id="taskInput" placeholder="Enter Task" class="w-[614px] h-[81px] rounded-[7px] text-[#FFFFFF] text-left
+    text-2xl font-[Baloo] border-[1px] bg-[#C4BABA5E] border-[#FFFFFFB2] ml-[200px]">
+    <button onclick="addTask()" class="w-[75px] h-[75px] border-[1px] bg-[#C4BABA5E] border-[#FFFFFFB2] rounded-full ml-[20px]"> 
       <img src="images/add sign.png">
     </button>
   
 
-    <!-- <div class="relative mb-4"> -->
-
-      <select class="relative focus:outline-none appearance-none ml-[46px] w-[350px] h-[60px] font-[400] font-normal text-[20px] leading-[100$] tracking-0 bg-white/10 backdrop-blur-lg rounded-xl shadow-xl border border-white/20 pl-[25px]">
+      <select id="filterSelect"
+       class="relative focus:outline-none appearance-none font-[Baloo] text-white ml-[46px] 
+       w-[250px] h-[62px] font-[400] font-normal text-[24px] leading-[100$] tracking-0 
+        rounded-xl shadow-xl border-[1px] bg-[#C4BABA5E] border-[#FFFFFFB2] pl-[25px]">
+       
         <option class="all bg-black text-white" value="all">ALL</option>
         <option class="complete bg-black text-white" value="complete">Completed</option>
         <option class="incomplete bg-black text-white" value="incomplete">Incomplete</option>
       </select>
 
-  <!-- <div onclick="toggleDropdown()"
-    class="w-[250px] h-[62px] flex border-[1px] bg-[#C4BABA5E] border-[#FFFFFFB2] ml-[46px] rounded-[2px] cursor-pointer">
-
-    <span id="selectedFilter" class="w-[56px] h-[48px] ml-[25px] font-[Baloo] text-[24px] leading-[100%] font-normal text-[#FFFFFF] py-4">
-      ALL</span>
-    
-      <img src="images/down arrow.png" id="arrow" class="w-[40px] h-[26px] mt-[15px] ml-[110px]">
-  </div>
-
-  
-  <div id="dropdownMenu"
-    class="hidden absolute w-[250px] mt-1 bg-[#C4BABA5E] rounded-lg overflow-hidden">
-
-    <div onclick="setFilter('ALL')" class="px-4 py-2 bg-[#C4BABA5E] hover:bg-white/40 text-[#FFFFFF] font-[Baloo] cursor-pointer">ALL</div>
-    <div onclick="setFilter('Completed')" class="px-4 py-2 bg-[#C4BABA5E] hover:bg-white/40 text-[#FFFFFF] font-[Baloo] cursor-pointer">Completed</div>
-    <div onclick="setFilter('Incomplete')" class="px-4 py-2 bg-[#C4BABA5E] hover:bg-white/40 text-[#FFFFFF] font-[Baloo] cursor-pointer">Incomplete</div>
-
-  </div> -->
-
+ 
 </div>
-
-  
 
   <div class="relative flex justify-center">
 
       <ul id="taskList" class="mt-[74px] wrap-break-word h-[63vh] overflow-auto flex flex-col items-start px-5"></ul>
-
-      
-  </div>
  
+  </div>
    
   </div>
 
     </section>
+
     <script src="script.js"></script>
+    
 </body>
 </html>
 
