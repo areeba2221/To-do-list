@@ -40,7 +40,7 @@ function createTaskElement(task, completed, index) {
 
   checkbox.type = "checkbox";
 
-  checkbox.className = "appearance-none h-[45px] flex items-center w-[55px] border-4 border-white rounded-full checked:bg-white checked:before:content-['\u2713'] flex items-center justify-center cursor-pointer";
+  checkbox.className = "appearance-none h-[45px] w-[55px] border-4 border-white rounded-full checked:bg-white checked:before:content-['\u2713'] flex items-center justify-center cursor-pointer";
 
   if (completed) {
 
@@ -87,8 +87,7 @@ edit.onclick = function () {
 
   editInput.value = span.innerText;
 
-  editInput.className =
-  "ml-5 w-full bg-transparent outline-none text-white text-[40px] font-[Baloo]";
+  editInput.className = "ml-5 w-full bg-transparent outline-none text-white text-[40px] font-[Baloo]";
 
   // SAVE BUTTON
   let saveBtn = document.createElement("button");
@@ -148,6 +147,9 @@ cancelBtn.className = "mr-5";
 
     // SHOW BUTTONS AGAIN
     checkbox.style.display = "block";
+    checkbox.style.display = "flex";
+    checkbox.style.justifyContent = "center";
+    checkbox.style.alignItems = "center";
     edit.style.display = "block";
     del.style.display = "block";
 
@@ -164,6 +166,9 @@ cancelBtn.className = "mr-5";
 
     // SHOW AGAIN
     checkbox.style.display = "block";
+    checkbox.style.display = "flex";
+    checkbox.style.justifyContent = "center";
+    checkbox.style.alignItems = "center";
     edit.style.display = "block";
     del.style.display = "block";
 
@@ -334,7 +339,7 @@ function addTask() {
 
 }
 
-//all function and properties
+//all box function and properties
 
 filterSelect.addEventListener("change", displayTasks);
 
