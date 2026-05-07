@@ -20,6 +20,8 @@ function displayTasks() {
 
 }
 
+//list and it functionality
+
 function createTaskElement(task, completed, index) {
 
   let li = document.createElement("li");
@@ -32,11 +34,13 @@ function createTaskElement(task, completed, index) {
 
   span.innerText = task;
 
+  //checkbox and use fuctionality
+
   const checkbox = document.createElement("input");
 
   checkbox.type = "checkbox";
 
-  checkbox.className = "appearance-none h-[45px] w-[55px] border-4 border-white rounded-full checked:bg-white checked:before:content-['\u2713'] flex items-center justify-center cursor-pointer";
+  checkbox.className = "appearance-none h-[45px] flex items-center w-[55px] border-4 border-white rounded-full checked:bg-white checked:before:content-['\u2713'] flex items-center justify-center cursor-pointer";
 
   if (completed) {
 
@@ -61,11 +65,72 @@ function createTaskElement(task, completed, index) {
 
   };
 
+  //edit button and use function
+
+  let edit = document.createElement("img");
+
+edit.src = "images/edit.png";
+
+edit.className = "w-[45px] h-[45px] ml-[5px] cursor-pointer";
+
+edit.onclick = function () {
+
+  let editInput = document.createElement("input");
+
+  editInput.type = "text";
+
+  editInput.value = span.innerText;
+
+  editInput.className = "ml-10 font-[Baloo] w-full text-[40px] bg-transparent outline-none text-white";
+
+  li.replaceChild(editInput, span);
+
+  editInput.focus();
+
+  function saveEdit() {
+
+    let updatedText = editInput.value.trim();
+
+    if (updatedText === "") {
+
+      alert("Task cannot be empty!");
+
+      return;
+
+    }
+
+    todos[index].text = updatedText;
+
+    saveTodos();
+
+    span.innerText = updatedText;
+
+    li.replaceChild(span, editInput);
+
+  }
+
+  editInput.addEventListener("keypress", function (e) {
+
+    if (e.key === "Enter") {
+
+      saveEdit();
+
+    }
+
+  });
+
+  editInput.addEventListener("blur", saveEdit);
+
+};
+
+
+//Delete button and use function
+
   let del = document.createElement("img");
 
   del.src = "images/delete box.png";
 
-  del.className = "w-[55px] ml-[19px] mr-[35px] cursor-pointer";
+  del.className = "w-[55px] h-[42px] flex items-center  ml-[5px] mr-[35px] cursor-pointer";
 
   let deleteIndex = null;
 
@@ -121,18 +186,17 @@ function showConfirmBox() {
 
     saveTodos();
 
-    // filterTasks();
 
     displayTasks();
 };
 
-   
-
-  
+//excute proprties
 
   li.appendChild(span);
 
   li.appendChild(checkbox);
+
+   li.appendChild(edit);
 
   li.appendChild(del);
 
@@ -171,6 +235,9 @@ function addTask() {
   input.value = "";
 
 }
+
+//all function and properties
+
 filterSelect.addEventListener("change", displayTasks);
 
 
@@ -208,6 +275,8 @@ function displayTasks() {
 }
 
 displayTasks();
+
+//add enter functionality
 
 document.getElementById("taskInput")
 .addEventListener("keypress", function(event) {
