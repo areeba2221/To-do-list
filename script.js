@@ -24,7 +24,7 @@ function createTaskElement(task, completed, index) {
 
   let li = document.createElement("li");
 
-  li.className = "w-[735px] flex rounded-[85px] bg-[#D9D9D980] border border-[#FFFFFFB2] py-4 mb-4";
+  li.className = "w-[700px]  flex rounded-[85px] bg-[#D9D9D980] border border-[#FFFFFFB2] py-4 mb-4";
 
   let span = document.createElement("span");
 
@@ -56,7 +56,7 @@ function createTaskElement(task, completed, index) {
 
     saveTodos();
 
-    filterTasks();
+  
 
   };
 
@@ -66,15 +66,68 @@ function createTaskElement(task, completed, index) {
 
   del.className = "w-[55px] ml-[19px] mr-[35px] cursor-pointer";
 
-  del.onclick = function () {
+  let deleteIndex = null;
 
-    todos.splice(index, 1);
+function showConfirmBox() {
+
+  let overlay = document.createElement("div");
+  overlay.className = "fixed inset-0 bg-black/50 flex items-center justify-center";
+
+  let box = document.createElement("div");
+  box.className = "bg-white p-6 rounded-lg shadow-lg text-center w-[300px]";
+
+  let text = document.createElement("p");
+  text.innerText = "Are you sure you want to delete?";
+  text.className = "mb-4 text-lg font-semibold font-[Baloo]";
+
+  let btnBox = document.createElement("div");
+  btnBox.className = "flex justify-center gap-4";
+
+  let yesBtn = document.createElement("button");
+  yesBtn.innerText = "Yes";
+  yesBtn.className = "bg-green-500 text-white px-4 py-2 rounded font-[Baloo]";
+
+  let noBtn = document.createElement("button");
+  noBtn.innerText = "No";
+  noBtn.className = "bg-gray-400 text-white px-4 py-2 rounded font-[Baloo]";
+
+  btnBox.appendChild(yesBtn);
+  btnBox.appendChild(noBtn);
+
+  box.appendChild(text);
+  box.appendChild(btnBox);
+  overlay.appendChild(box);
+  document.body.appendChild(overlay);
+
+  noBtn.onclick = function () {
+    overlay.remove();
+    deleteIndex = null;
+  };
+
+  yesBtn.onclick = function () {
+    todos.splice(deleteIndex, 1);
+    saveTodos();
+    displayTasks();
+    overlay.remove();
+    deleteIndex = null;
+  };
+}
+
+    del.onclick = function () {
+  deleteIndex = index;
+
+  showConfirmBox();
 
     saveTodos();
 
-    displayTasks();
+    filterTasks();
 
-  };
+    displayTasks();
+};
+
+   
+
+  
 
   li.appendChild(span);
 

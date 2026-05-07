@@ -15,10 +15,10 @@
 
   <section>
 
-<div class="relative h-screen w-full">
+<div class="relative min-h-screen w-full overflow-hidden">
 
   <video  autoplay muted loop 
-    class="absolute top-0 left-0 min-w-full min-h-full object-cover z-0">
+    class="fixed right-0 bottom-0 min-w-full min-h-full object-cover z-0">
     <source src="video/Chillhop - White Oak.mp4" type="video/mp4">
   </video>
 
@@ -31,10 +31,11 @@
     </div>
   </div>
 
-  <div class="relative flex items-center pt-[44px] w-[1000px]">
-    <input type="text" id="taskInput" placeholder="Enter Task" class="w-[500px] h-[65px] rounded-[7px] text-[#FFFFFF] text-left
-    text-2xl font-[Baloo] border-[1px] bg-[#C4BABA5E] border-[#FFFFFFB2] ml-[250px]">
-    <button onclick="addTask()" class="w-[70px] h-[60px] rounded-full border-[1px] bg-[#C4BABA5E] border-[#FFFFFFB2] ml-[20px]"> 
+    
+  <div class="relative flex items-center pt-[44px] mx-auto px-5 max-w-[1144px] w-full">
+    <input type="text" id="taskInput" placeholder="Enter Task" class="w-[614px] h-[65px] rounded-[7px] text-[#FFFFFF] text-left
+    text-2xl font-[Baloo] border-[1px] bg-[#C4BABA5E] border-[#FFFFFFB2] ml-[180px]">
+    <button onclick="addTask()" class="w-[90px] rounded-full border-[1px] bg-[#C4BABA5E] border-[#FFFFFFB2] ml-[20px]"> 
       <img src="images/add sign.png">
     </button>
   
@@ -52,11 +53,13 @@
  
 </div>
 
-  <div class="relative flex justify-center">
+  <div class="relative flex justify-center mb-4">
 
-      <ul id="taskList" class="mt-[74px] wrap-break-word h-[63vh] overflow-auto flex flex-col items-start px-5"></ul>
+      <ul id="taskList" class="mt-[70px] wrap-break-word h-[44vh] overflow-x-hidden flex flex-col items-start px-5 pb-[20px]"></ul>
  
   </div>
+  </div>
+
    
   </div>
 
