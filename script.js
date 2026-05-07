@@ -75,19 +75,51 @@ edit.className = "w-[45px] h-[45px] ml-[5px] cursor-pointer";
 
 edit.onclick = function () {
 
+  // HIDE BUTTONS
+  checkbox.style.display = "none";
+  edit.style.display = "none";
+  del.style.display = "none";
+
+  // INPUT FIELD
   let editInput = document.createElement("input");
 
   editInput.type = "text";
 
   editInput.value = span.innerText;
 
-  editInput.className = "ml-10 font-[Baloo] w-full text-[40px] bg-transparent outline-none text-white";
+  editInput.className =
+  "ml-5 w-full bg-transparent outline-none text-white text-[40px] font-[Baloo]";
 
+  // SAVE BUTTON
+  let saveBtn = document.createElement("button");
+
+  saveBtn.innerText = "Edit Save";
+
+  saveBtn.className =
+  "text-white border-[1px] p-2 text-[20px] whitespace-nowrap mx-2 font-[Baloo]";
+
+  let cancelBtn = document.createElement("button");
+
+let cancelImg = document.createElement("img");
+cancelImg.src = "images/cancel.png";
+cancelImg.alt = "Cancel";
+cancelImg.className = " w-[90px]  cursor-pointer";
+
+cancelBtn.appendChild(cancelImg);
+cancelBtn.className = "mr-5";
+
+  // REPLACE TEXT WITH INPUT
   li.replaceChild(editInput, span);
+
+  // ADD BUTTONS
+  li.appendChild(saveBtn);
+
+  li.appendChild(cancelBtn);
 
   editInput.focus();
 
-  function saveEdit() {
+  // SAVE FUNCTION
+  saveBtn.onclick = function () {
 
     let updatedText = editInput.value.trim();
 
@@ -99,29 +131,95 @@ edit.onclick = function () {
 
     }
 
+    // UPDATE ARRAY
     todos[index].text = updatedText;
 
     saveTodos();
 
+    // UPDATE TEXT
     span.innerText = updatedText;
+
+    // REMOVE EDIT MODE
+    li.replaceChild(span, editInput);
+
+    saveBtn.remove();
+
+    cancelBtn.remove();
+
+    // SHOW BUTTONS AGAIN
+    checkbox.style.display = "block";
+    edit.style.display = "block";
+    del.style.display = "block";
+
+  };
+
+  // CANCEL FUNCTION
+  cancelBtn.onclick = function () {
 
     li.replaceChild(span, editInput);
 
-  }
+    saveBtn.remove();
 
-  editInput.addEventListener("keypress", function (e) {
+    cancelBtn.remove();
 
-    if (e.key === "Enter") {
+    // SHOW AGAIN
+    checkbox.style.display = "block";
+    edit.style.display = "block";
+    del.style.display = "block";
 
-      saveEdit();
-
-    }
-
-  });
-
-  editInput.addEventListener("blur", saveEdit);
+  };
 
 };
+
+// edit.onclick = function () {
+
+//   let editInput = document.createElement("input");
+
+//   editInput.type = "text";
+
+//   editInput.value = span.innerText;
+
+//   editInput.className = "ml-10 font-[Baloo] w-full text-[40px] bg-transparent outline-none text-white";
+
+//   li.replaceChild(editInput, span);
+
+//   editInput.focus();
+
+//   function saveEdit() {
+
+//     let updatedText = editInput.value.trim();
+
+//     if (updatedText === "") {
+
+//       alert("Task cannot be empty!");
+
+//       return;
+
+//     }
+
+//     todos[index].text = updatedText;
+
+//     saveTodos();
+
+//     span.innerText = updatedText;
+
+//     li.replaceChild(span, editInput);
+
+//   }
+
+//   editInput.addEventListener("keypress", function (e) {
+
+//     if (e.key === "Enter") {
+
+//       saveEdit();
+
+//     }
+
+//   });
+
+//   editInput.addEventListener("blur", saveEdit);
+
+// };
 
 
 //Delete button and use function
