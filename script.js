@@ -56,6 +56,7 @@ function createTaskElement(task, completed, index) {
 
     saveTodos();
 
+     displayTasks();
   
 
   };
@@ -120,7 +121,7 @@ function showConfirmBox() {
 
     saveTodos();
 
-    filterTasks();
+    // filterTasks();
 
     displayTasks();
 };
@@ -153,7 +154,9 @@ function addTask() {
 
   }
 
-  todos.push({
+  
+
+  todos.unshift({
 
     text: task,
     completed: false
@@ -164,54 +167,41 @@ function addTask() {
 
   displayTasks();
 
-  filterTasks();
 
   input.value = "";
 
 }
+filterSelect.addEventListener("change", displayTasks);
 
-filterSelect.addEventListener("change", filterTasks);
 
-function filterTasks() {
+function displayTasks() {
+
+  document.getElementById("taskList").innerHTML = "";
 
   let filterValue = filterSelect.value;
 
-  let tasks = document.querySelectorAll("#taskList li");
+  todos.forEach((todo, index) => {
 
-  tasks.forEach(task => {
-
-    let span = task.querySelector("span");
-
-    let isCompleted =
-    span.classList.contains("line-through");
-
+    // ALL
     if (filterValue === "all") {
 
-      task.style.display = "flex";
+      createTaskElement(todo.text, todo.completed, index);
 
     }
-    else if (filterValue === "complete") {
 
-      if (isCompleted) {
+    // COMPLETED
+    else if (filterValue === "complete" && todo.completed) {
 
-        task.style.display = "flex";
+      createTaskElement(todo.text, todo.completed, index);
 
-      } else {
+    }
 
-        task.style.display = "none";
+    // INCOMPLETE
+    else if (filterValue === "incomplete" && !todo.completed) {
 
-      }}
-    else if (filterValue === "incomplete") {
+      createTaskElement(todo.text, todo.completed, index);
 
-      if (!isCompleted) {
-
-        task.style.display = "flex";
-
-      } else {
-
-        task.style.display = "none";
-
-      }}
+    }
 
   });
 

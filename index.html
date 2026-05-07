@@ -34,7 +34,7 @@
     
   <div class="relative flex items-center pt-[44px] mx-auto px-5 max-w-[1144px] w-full">
     <input type="text" id="taskInput" placeholder="Enter Task" class="w-[614px] h-[65px] rounded-[7px] text-[#FFFFFF] text-left
-    text-2xl font-[Baloo] border-[1px] bg-[#C4BABA5E] border-[#FFFFFFB2] ml-[180px]">
+    text-2xl font-[Baloo] outline-none focus:outline-none border-[1px] bg-[#C4BABA5E] border-[#FFFFFFB2] ml-[180px] pl-4">
     <button onclick="addTask()" class="w-[90px] rounded-full border-[1px] bg-[#C4BABA5E] border-[#FFFFFFB2] ml-[20px]"> 
       <img src="images/add sign.png">
     </button>
@@ -55,7 +55,7 @@
 
   <div class="relative flex justify-center mb-4">
 
-      <ul id="taskList" class="mt-[70px] wrap-break-word h-[44vh] overflow-x-hidden flex flex-col items-start px-5 pb-[20px]"></ul>
+      <ul id="taskList" class="mt-[70px] wrap-break-word h-[calc(100vh-360px)] overflow-x-hidden flex flex-col items-start px-5 pb-[20px]"></ul>
  
   </div>
   </div>
